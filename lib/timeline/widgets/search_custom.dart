@@ -1,3 +1,4 @@
+import 'package:desafio_flutter_cubos/timeline/shared/design_system.dart';
 import 'package:desafio_flutter_cubos/timeline/widgets/buttons.dart';
 import 'package:flutter/material.dart';
 
@@ -10,21 +11,20 @@ class SearchCustom extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: const [
-          SizedBox(height: 20),
+        children: [
+          const SizedBox(height: 20),
           Text(
             'Filmes',
             textAlign: TextAlign.left,
-            style: TextStyle(
-                fontSize: 22, color: Colors.black, fontWeight: FontWeight.bold),
+            style: AppTypography.h1,
           ),
-          SizedBox(height: 24),
+          const SizedBox(height: 24),
           TextField(
             decoration: InputDecoration(
-              icon: Icon(Icons.search),
+              prefixIcon: const Icon(Icons.search),
               labelText: 'Pesquise aqui',
-              labelStyle: TextStyle(color: Colors.black),
-              border: OutlineInputBorder(),
+              labelStyle: AppTypography.searchStyle,
+              border: OutlineInputBorder(borderRadius: BorderRadius.circular(100)),
             ),
           ),
           SizedBox(height: 16),
