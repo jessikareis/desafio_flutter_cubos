@@ -1,3 +1,4 @@
+import 'package:desafio_flutter_cubos/timeline/shared/design_system.dart';
 import 'package:flutter/material.dart';
 
 class Buttons extends StatelessWidget {
@@ -16,7 +17,7 @@ class Buttons extends StatelessWidget {
         ),
         child: Text(
           title,
-          style: const TextStyle(fontSize: 12, color: Colors.blueGrey),
+          style:  AppTypography.buttonStyle,
         ),
       );
     }

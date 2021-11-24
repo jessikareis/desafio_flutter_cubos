@@ -6,5 +6,6 @@ class AppColors {
   static const Color grey2 = Color(0xff5E6770);
 
   static const Color green1 = Color(0xff00384C);
-   
+
+  static const Color backgroundSearch = Color(0xffF1F3F5);
 }

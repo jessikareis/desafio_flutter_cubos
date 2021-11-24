@@ -7,8 +7,10 @@ class SearchCustom extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
+    return Container(
+      color: Colors.white,
+      padding:
+          const EdgeInsets.only(top: 8.0, bottom: 8.0, left: 16, right: 16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -22,9 +24,10 @@ class SearchCustom extends StatelessWidget {
           TextField(
             decoration: InputDecoration(
               prefixIcon: const Icon(Icons.search),
-              labelText: 'Pesquise aqui',
+              labelText: 'Pesquise filmes',
               labelStyle: AppTypography.searchStyle,
-              border: OutlineInputBorder(borderRadius: BorderRadius.circular(100)),
+              border:
+                  OutlineInputBorder(borderRadius: BorderRadius.circular(100)),
             ),
           ),
           SizedBox(height: 16),

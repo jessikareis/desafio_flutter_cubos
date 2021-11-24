@@ -12,29 +12,25 @@ class FeedPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView.builder(
-        shrinkWrap: true,
-        itemCount: 18,
-        itemBuilder: (context, index) {
-          return Column(
-            children: [
-              index == 0 ? const SearchCustom() : const SizedBox(),
-              MovieCard(),
-              ElevatedButton(
-                  onPressed: () {
-                   
-                    var result = controller.getMovieDetail(566525);
-                  },
-                  child: const Text("Details")),
-              ElevatedButton(
-                  onPressed: () {
-                   
-                    var result = controller.getMovieList();
-                  },
-                  child: const Text("List"))
-            ],
-          );
-        },
+      backgroundColor: Colors.white,
+      body: CustomScrollView(
+        slivers: <Widget>[
+          const SliverAppBar(
+            pinned: true,
+            collapsedHeight: 160,
+            flexibleSpace: FlexibleSpaceBar(
+              background: SearchCustom(),
+            ),
+          ),
+          SliverList(
+            delegate: SliverChildBuilderDelegate(
+              (BuildContext context, int index) {
+                return MovieCard();
+              },
+              childCount: 20,
+            ),
+          ),
+        ],
       ),
     );
   }
