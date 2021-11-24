@@ -19,6 +19,6 @@ class AppModule extends Module {
         ChildRoute('/',
             child: (context, args) =>
                 FeedPage(controller: Modular.get<FeedController>())),
-        ChildRoute('/detail', child: (context, args) => const FeedDetailPage())
+        ChildRoute('/detail', child: (context, args) => FeedDetailPage(controller: Modular.get<FeedController>())),
       ];
 }
