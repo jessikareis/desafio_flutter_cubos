@@ -12,12 +12,12 @@ class Buttons extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 10),
         alignment: Alignment.center,
         decoration: BoxDecoration(
+          border: Border.all(color: AppColors.borderButtons),
           borderRadius: BorderRadius.circular(26),
-          color: Colors.white38,
         ),
         child: Text(
           title,
-          style:  AppTypography.buttonStyle,
+          style: AppTypography.buttonStyle,
         ),
       );
     }

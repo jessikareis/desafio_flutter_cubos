@@ -23,11 +23,15 @@ class SearchCustom extends StatelessWidget {
           const SizedBox(height: 24),
           TextField(
             decoration: InputDecoration(
+              fillColor: AppColors.backgroundSearch,
+              filled: true,
               prefixIcon: const Icon(Icons.search),
               labelText: 'Pesquise filmes',
               labelStyle: AppTypography.searchStyle,
-              border:
-                  OutlineInputBorder(borderRadius: BorderRadius.circular(100)),
+              border: OutlineInputBorder(
+                borderSide: BorderSide.none,
+                borderRadius: BorderRadius.circular(100),
+              ),
             ),
           ),
           SizedBox(height: 16),
