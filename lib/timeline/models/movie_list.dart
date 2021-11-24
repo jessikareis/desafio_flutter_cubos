@@ -6,16 +6,16 @@ String movieListToJson(MovieList data) => json.encode(data.toJson());
 
 class MovieList {
   MovieList({
-    required this.page,
-    required this.results,
-    required this.totalPages,
-    required this.totalResults,
+     this.page,
+     this.results,
+     this.totalPages,
+     this.totalResults,
   });
 
-  final int page;
-  final List<Movie> results;
-  final int totalPages;
-  final int totalResults;
+  final int? page;
+  final List<Movie>? results;
+  final int? totalPages;
+  final int? totalResults;
 
   factory MovieList.fromJson(Map<String, dynamic> json) => MovieList(
         page: json["page"],
@@ -27,7 +27,7 @@ class MovieList {
 
   Map<String, dynamic> toJson() => {
         "page": page,
-        "results": List<dynamic>.from(results.map((x) => x.toJson())),
+        "results": List<dynamic>.from(results!.map((x) => x.toJson())),
         "total_pages": totalPages,
         "total_results": totalResults,
       };

@@ -5,7 +5,7 @@ class Buttons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget buildOptions(String title) {
+    Widget buttonOptions(String title) {
       return Container(
         height: 24,
         padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -24,10 +24,10 @@ class Buttons extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
-        buildOptions('Ação'),
-        buildOptions('Aventura'),
-        buildOptions('Fantasia'),
-        buildOptions('Comédia'),
+        buttonOptions('Ação'),
+        buttonOptions('Aventura'),
+        buttonOptions('Fantasia'),
+        buttonOptions('Comédia'),
       ],
     );
   }
