@@ -1,3 +1,4 @@
+import 'package:desafio_flutter_cubos/timeline/widgets/movie_card.dart';
 import 'package:desafio_flutter_cubos/timeline/widgets/search_custom.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -34,15 +35,17 @@ class _FeedPageState extends State<FeedPage> {
           SliverList(
             delegate: SliverChildBuilderDelegate(
               (BuildContext context, int index) {
-                return Observer(builder: (_) {
+                return Observer(builder: (context) {
                   if (widget.controller.list.results == null) {
                     return const SizedBox.shrink();
                   } else {
                     return GestureDetector(
                       child: Hero(
                         tag: widget.controller.list.results![index].id,
-                        child:
-                            Text(widget.controller.list.results![index].title),
+                        child: MovieCard(
+                            posterPath: widget
+                                .controller.list.results![index].posterPath),
+                        //Text(widget.controller.list.results![index].title),
                       ),
                       onTap: () => Modular.to.pushNamed("/detail",
                           arguments: widget.controller.list.results![index]),
