@@ -14,7 +14,7 @@ class SearchCustom extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SizedBox(height: 20),
+          const SizedBox(height: 48),
           Text(
             'Filmes',
             textAlign: TextAlign.left,
