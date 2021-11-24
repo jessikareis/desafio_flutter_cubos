@@ -6,25 +6,23 @@ class MovieCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: Column(
-        children: [
-          const SizedBox(height: 470, width: 320),
-          Container(
-            margin: const EdgeInsets.all(10),
-            decoration: BoxDecoration(
-              borderRadius: const BorderRadius.all(Radius.circular(10)),
-              image: DecorationImage(
-                image: NetworkImage(
-                  'https://image.tmdb.org/t/p/w220_and_h330_face$posterPath',
-                ),
-                fit: BoxFit.cover,
+    return Column(
+      children: [
+        Container(
+          height: 470,
+          width: MediaQuery.of(context).size.width * 0.90,
+          margin: const EdgeInsets.all(10),
+          decoration: BoxDecoration(
+            borderRadius: const BorderRadius.all(Radius.circular(10)),
+            image: DecorationImage(
+              image: NetworkImage(
+                'https://image.tmdb.org/t/p/w220_and_h330_face$posterPath',
               ),
+              fit: BoxFit.cover,
             ),
-          )
-        ],
-      ),
-      elevation: 1.5,
+          ),
+        ),
+      ],
     );
   }
 }
