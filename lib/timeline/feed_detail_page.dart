@@ -44,35 +44,53 @@ class _FeedDetailPageState extends State<FeedDetailPage> {
                 ),
               ),
             ),
-            NotaWidget(voteAverage: detail.voteAverage ?? 0.0),
-            TituloOriginal(detail: detail),
+            const SizedBox(height: 32),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                PilulaWidget(descricao: "Ano: ", valor: "${detail.releaseDate?.year}"),
-                const SizedBox(width: 16),
-                PilulaWidget(descricao: "Duração: ", valor: "${detail.runtime} min"),
+                NotaWidget(voteAverage: detail.voteAverage ?? 0.0),
               ],
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: 35),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                TituloOriginal(detail: detail),
+              ],
+            ),
+            const SizedBox(height: 32),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                PilulaWidget(
+                    descricao: "Ano: ", valor: "${detail.releaseDate?.year}"),
+                const SizedBox(width: 16),
+                PilulaWidget(
+                    descricao: "Duração: ", valor: "${detail.runtime} min"),
+              ],
+            ),
+            const SizedBox(height: 18),
             SizedBox(
               width: MediaQuery.of(context).size.width,
               height: 32,
-              child: ListView.builder(
-                  scrollDirection: Axis.horizontal,
-                  physics: const NeverScrollableScrollPhysics(),
-                  shrinkWrap: true,
-                  itemCount: detail.genres?.length,
-                  itemBuilder: (context, index) {
-                    return Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 8),
-                      child: PilulaSimplesWidget(descricao: detail.genres![index].name),
-                    );
-                  }),
+              child: Center(
+                child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    physics: const NeverScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                    itemCount: detail.genres?.length,
+                    itemBuilder: (context, index) {
+                      return Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 8),
+                        child: PilulaSimplesWidget(
+                            descricao: detail.genres![index].name),
+                      );
+                    }),
+              ),
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: 56),
             DescricaoWidget(descricao: detail.overview ?? ''),
-            const SizedBox(height: 16),
+            const SizedBox(height: 40),
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 8),
               child: PilulaWidget(
@@ -88,6 +106,7 @@ class _FeedDetailPageState extends State<FeedDetailPage> {
                 valor: detail.productionCompanies![0].name,
               ),
             ),
+            const SizedBox(height: 20),
           ],
         ),
       ),
@@ -105,14 +124,18 @@ class DescricaoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const Text("Descrição"),
-        Text(
-          descricao,
-          style: const TextStyle(color: Colors.black),
-        ),
-      ],
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text("Descrição"),
+          Text(
+            descricao,
+            style: const TextStyle(color: Colors.black),
+          ),
+        ],
+      ),
     );
   }
 }
@@ -166,7 +189,8 @@ class PilulaWidget extends StatelessWidget {
           Text(descricao, style: const TextStyle(color: AppColors.grey2)),
           Text(
             valor,
-            style: const TextStyle(fontWeight: FontWeight.bold, color: AppColors.grey1),
+            style: const TextStyle(
+                fontWeight: FontWeight.bold, color: AppColors.grey1),
           ),
         ],
       ),
@@ -228,10 +252,14 @@ class BackButton extends StatelessWidget {
       alignment: Alignment.centerLeft,
       child: ElevatedButton(
         onPressed: () => Modular.to.pop(),
-        child: const Text("<   Voltar"),
+        child: const Text(
+          "<   Voltar",
+          style: TextStyle(color: Colors.black),
+        ),
         style: ElevatedButton.styleFrom(
-          primary: AppColors.grey2,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+          primary: Colors.white,
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
         ),
       ),
     );
