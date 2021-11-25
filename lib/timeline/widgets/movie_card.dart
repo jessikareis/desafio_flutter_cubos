@@ -2,15 +2,23 @@ import 'package:flutter/material.dart';
 
 class MovieCard extends StatelessWidget {
   final String posterPath;
-  const MovieCard({Key? key, required this.posterPath}) : super(key: key);
+  final double? width;
+  final double? height;
+
+  const MovieCard({
+    Key? key,
+    required this.posterPath,
+    this.width,
+    this.height,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         Container(
-          height: 470,
-          width: MediaQuery.of(context).size.width * 0.90,
+          height: height ?? 470,
+          width: width ?? MediaQuery.of(context).size.width * 0.90,
           margin: const EdgeInsets.all(10),
           decoration: BoxDecoration(
             borderRadius: const BorderRadius.all(Radius.circular(10)),

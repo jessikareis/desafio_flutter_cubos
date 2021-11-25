@@ -3,6 +3,7 @@ import 'package:desafio_flutter_cubos/timeline/widgets/search_custom.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+
 import 'feed_controller.dart';
 
 class FeedPage extends StatefulWidget {
@@ -42,13 +43,13 @@ class _FeedPageState extends State<FeedPage> {
                     return GestureDetector(
                       child: Hero(
                         tag: widget.controller.list.results![index].id,
-                        child: MovieCard(
-                            posterPath: widget
-                                .controller.list.results![index].posterPath),
+                        child: MovieCard(posterPath: widget.controller.list.results![index].posterPath),
                         //Text(widget.controller.list.results![index].title),
                       ),
-                      onTap: () => Modular.to.pushNamed("/detail",
-                          arguments: widget.controller.list.results![index]),
+                      onTap: () async {
+                        await widget.controller.getMovieDetail(widget.controller.list.results![index].id);
+                        Modular.to.pushNamed("/detail", arguments: widget.controller.details);
+                      },
                     );
                   }
                 });
